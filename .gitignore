@@ -1,0 +1,6 @@
+.direnv
+.envrc
+dist
+playground/dist
+node_modules
+*.tgz
