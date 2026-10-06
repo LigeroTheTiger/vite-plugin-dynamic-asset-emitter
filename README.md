@@ -85,7 +85,7 @@ files are in `examples/playground/dist/generated/`.
 | Text   | `/generated/message.txt` | `/generated/message.txt` |
 | Binary | `/generated/bytes.bin`   | `/generated/bytes.bin`   |
 
-Edit `examples/playground/vite.config.js` to change the asset definitions. The
+Edit `examples/playground/vite.config.ts` to change the asset definitions. The
 development server restarts on config changes. After changing plugin code in
 `src/index.ts`, stop and rerun `npm run playground` to rebuild the local plugin.
 For production, rerun the build and preview commands.
@@ -94,7 +94,9 @@ For production, rerun the build and preview commands.
 
 Run `npm install` and `npm run build`. Vite is a peer dependency of the consuming project.
 
-Run `npm test` to build the plugin and check development URLs, fresh responses,
+Run `npm run typecheck` to build the plugin and type-check the tests and playground.
+
+Run `npm test` to type-check the project and check development URLs, fresh responses,
 binary data, build output, and the playground's production preview. Tests use
 temporary output directories and Node's built-in test runner, so no extra test
-dependency is needed. Add more cases in `test/plugin.test.js` using the same pattern.
+dependency is needed. Add more cases in `test/plugin.test.ts` using the same pattern.

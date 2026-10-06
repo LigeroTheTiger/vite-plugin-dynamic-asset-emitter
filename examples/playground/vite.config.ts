@@ -1,8 +1,6 @@
 import { defineConfig } from 'vite'
 import { dynamicAssetEmitter } from 'vite-plugin-dynamic-asset-emitter'
 
-let requests = 0
-
 export default defineConfig({
   plugins: [
     dynamicAssetEmitter([
@@ -10,12 +8,16 @@ export default defineConfig({
         devPath: '/dynamic/theme.json',
         fileName: 'generated/theme.json',
         contentType: 'application/json',
-        source: () => JSON.stringify({
-          title: 'Hello from the dynamic asset plugin',
-          color: '#6366f1',
-          generatedAt: new Date().toISOString(),
-          invocation: ++requests,
-        }, null, 2),
+        source: () =>
+          JSON.stringify(
+            {
+              title: 'Hello from the dynamic asset plugin',
+              color: '#6366f1',
+              generatedAt: new Date().toISOString(),
+            },
+            null,
+            2,
+          ),
       },
       {
         fileName: 'generated/message.txt',
